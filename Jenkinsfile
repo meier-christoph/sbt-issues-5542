@@ -19,26 +19,8 @@ pipeline {
         withSonarQubeEnv('default') {
           withJdk8 {
             withSbt('v1') {
-              sh 'sbt clean coverage test'
-              sh 'sbt coverageAggregate sonarScan'
+              sh 'sbt clean test'
             }
-          }
-        }
-      }
-    }
-
-    stage('release') {
-      when {
-        allOf {
-          branch 'master'
-          expression { return params.RELEASE }
-        }
-      }
-      steps {
-        withJdk8 {
-          withSbt('v1') {
-            sh "git branch --set-upstream-to=origin/${GIT_BRANCH} ${GIT_BRANCH}"
-            sh "sbt clean \"release with-defaults\""
           }
         }
       }
