@@ -4,7 +4,8 @@ ThisBuild / organization := "org.example"
 
 ThisBuild / javacOptions ++= List("-source", "1.8", "-target", "1.8", "-encoding", "UTF-8")
 
-ThisBuild / useCoursier := false
+// Note: disabling coursier as workaround for this issue
+// ThisBuild / useCoursier := false
 
 lazy val nameBase = "sbt-issues-5542"
 name := s"$nameBase-root"
