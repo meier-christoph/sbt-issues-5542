@@ -4,7 +4,7 @@ ThisBuild / organization := "org.example"
 
 ThisBuild / javacOptions ++= List("-source", "1.8", "-target", "1.8", "-encoding", "UTF-8")
 
-// ThisBuild / useCoursier := false
+ThisBuild / useCoursier := false
 
 lazy val nameBase = "sbt-issues-5542"
 name := s"$nameBase-root"
